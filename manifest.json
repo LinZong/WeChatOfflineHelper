@@ -1,0 +1,34 @@
+{
+  "name": "Wechat Offline Helper Chrome Plugin",
+  "version": "0.1",
+  "manifest_version":2 ,
+  "description": "This is a plugin that allows you to transfer your Wechat Message to QQ.",
+  "icons": {
+    "48": "icon.png"
+  },
+  "browser_action": {
+    "default_icon": "iconblack.png",
+    "default_title": "Wechat Helper",
+    "default_title": "Script will insert automatically."
+  },
+  "background": {
+    "scripts": ["bg.js"],
+    "persistent": false
+  },
+  "incognito": "spanning",
+  "offline_enabled": true,
+  "permissions": [
+    "tabs",
+    "bookmarks",
+    "https://wx2.qq.com/",
+    "http://w.qq.com/",
+    "storage"
+
+  ],
+  "content_scripts": [{
+    "matches": ["http://w.qq.com/"],
+    "js": ["qqmessagecatcher.js"]
+  }]
+
+
+}
