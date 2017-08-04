@@ -48,7 +48,7 @@ if(window.location == "https://wx2.qq.com/")
                 NameArray[j] = $(".main_inner .panel .nav_view .chat_list .scrollbar-dynamic .ng-scope .chat_item .info .nickname .nickname_text")[j].innerText;
                 MessageArray[j] = $(".main_inner .panel .nav_view .chat_list .scrollbar-dynamic .ng-scope .ng-scope .info .msg")[j].innerText;
                 $(".main_inner .panel .nav_view .chat_list .scrollbar-dynamic .ng-scope .chat_item .info .msg")[j].click();
-                $(".main_inner .panel .nav_view .chat_list .scrollbar-dynamic .ng-scope .chat_item .info")[4].click();
+                $(".main_inner .panel .nav_view .chat_list .scrollbar-dynamic .ng-scope .chat_item .info")[(chatlist.length -1)].click();
                 bindNameAndMessage[j] = [NameArray[j],MessageArray[j]];
                 //send message to qq module
                 window.port.postMessage({WxTransferMessage:bindNameAndMessage});
