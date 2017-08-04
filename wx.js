@@ -9,8 +9,10 @@ if(window.location == "https://wx2.qq.com/")
     var chatlist = $(".main_inner .panel .nav_view .chat_list .scrollbar-dynamic .ng-scope .chat_item .info");
     function initialNicknameList()
     {
-        chrome.extension.sendMessage({initialcomplete:"ok"}, function(){
+
+        chrome.extension.sendMessage({initialcomplete:"WxInitialComplete"}, function(){
             console.log("Start change icon");
+            console.log("Send Wx tab id to Background");
         });
         var nicknamearray = new Array();
         for (var i = 0, length = chatlist.length; i < length; i++) {
@@ -49,7 +51,8 @@ if(window.location == "https://wx2.qq.com/")
                 $(".main_inner .panel .nav_view .chat_list .scrollbar-dynamic .ng-scope .chat_item .info")[4].click();
                 bindNameAndMessage[j] = [NameArray[j],MessageArray[j]];
                 //send message to qq module
-                chrome.storage.local.set({"MessagePack": bindNameAndMessage},function(){console.log("Message Package Sent!");});
+                window.port.postMessage({WxTransferMessage:bindNameAndMessage});
+
             }
             else
             {
@@ -65,6 +68,8 @@ if(window.location == "https://wx2.qq.com/")
     setInterval(function () {
         checkNewMessage();
     },500);
+    window.port = chrome.extension.connect({name: "WxConnectToBg"});
+
 }
 else
 {
