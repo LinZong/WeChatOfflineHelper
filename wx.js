@@ -85,6 +85,7 @@ if(window.location == "https://wx2.qq.com/")
         th.appendChild(s);
     }
     var customEvent = document.createEvent('Event');
+    customEvent.initEvent('myCustomEvent', true, true);
     function fireCustomEvent(data)
     {
         EditArea = document.getElementById('editArea');
