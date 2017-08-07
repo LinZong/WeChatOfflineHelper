@@ -42,7 +42,7 @@ chrome.extension.onMessage.addListener
     if(request.isQQReplyMessage == "true")
     {
         chrome.tabs.sendMessage(window.WxTabid,{TransferQQReplyToWx:request.ReplyMessagePack},function () {
-            console.log("Send Message "+request.ReplyMessagePack[1]+" to Wx Tab.");
+            //console.log("Send Message "+request.ReplyMessagePack[1]+" to Wx Tab.");
         })
     }
 
@@ -56,7 +56,7 @@ chrome.runtime.onConnect.addListener
         if(msg.WxTransferMessage)
         {
             chrome.tabs.sendMessage(window.QQTabid,{QQRetrieveMessage:msg.WxTransferMessage},function(){
-                console.log("Bg Send message to qq module.");
+               // console.log("Bg Send message to qq module.");
             });
         }
     });

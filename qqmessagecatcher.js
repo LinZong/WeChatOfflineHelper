@@ -25,7 +25,6 @@ function WxMessageUnbox(WxMessageArray)
 
 function wxMessageHandler(ProcessedWxMessageArray)
 {
-    console.log("N:"+ProcessedWxMessageArray[0][0]+",M:"+ProcessedWxMessageArray[0][1]);
     var MessageTransfer = "N:"+ProcessedWxMessageArray[0][0]+",M:"+ProcessedWxMessageArray[0][1];
     document.getElementById("chat_textarea").value = MessageTransfer;
     document.getElementById("send_chat_btn").click();
