@@ -8,7 +8,6 @@
   },
   "browser_action": {
     "default_icon": "iconblack.png",
-    "default_title": "Wechat Helper",
     "default_title": "Script will insert automatically."
   },
   "background": {
@@ -23,15 +22,14 @@
     "https://wx2.qq.com/",
     "http://w.qq.com/",
     "storage"
-
   ],
   "content_scripts": [{
     "matches": ["http://w.qq.com/*"],
     "js": ["qqmessagecatcher.js"]
   },{
     "matches": ["https://wx2.qq.com/*"],
-    "js": ["jquery-2.1.4.js","wx.js"]
-  }]
-
+    "js": ["jquery-2.1.4.js","angular.js","wx.js"]
+  }],
+  "web_accessible_resources" : ["qq.js"]
 
 }
