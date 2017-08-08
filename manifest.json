@@ -8,7 +8,8 @@
   },
   "browser_action": {
     "default_icon": "iconblack.png",
-    "default_title": "Script will insert automatically."
+    "default_title": "Script will insert automatically.",
+    "default_popup": "popup.html"
   },
   "background": {
     "scripts": ["bg.js"],

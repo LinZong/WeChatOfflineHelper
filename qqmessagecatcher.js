@@ -11,7 +11,7 @@ function WxMessageUnbox(WxMessageArray)
         {
             for (var i=0;i<document.getElementsByClassName("member_nick").length;i++)
             {
-                if (document.getElementsByClassName("member_nick")[i].innerText == "Irony.Nemesiss")
+                if (document.getElementsByClassName("member_nick")[i].innerText == window.RetriveQQNickName)
                 {
                     document.getElementsByClassName("member_nick")[i].click();
                     wxMessageHandler(UnboxedMessageArray);
@@ -68,7 +68,7 @@ if(document.getElementsByClassName("buddy").length>window.OldReplyCounter)
 
 },500);
 
-//chrome.storage.onChanged.addListener(function(){checkStorage();});
+
 chrome.extension.sendMessage({initialcomplete:"QQInitialComplete"},function(){console.log("Send qq tab id to background.")});
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
@@ -77,5 +77,11 @@ chrome.runtime.onMessage.addListener(
             WxMessageUnbox(request.QQRetrieveMessage);
         }
     });
+
+chrome.storage.local.get("QQNickName",function (result) {
+
+    window.RetriveQQNickName = result.QQNickName;
+
+});
 
 
