@@ -3,7 +3,7 @@ function GetYourQQNickname()
     var SetNickName = document.getElementById("GetNickName").value;
     chrome.storage.local.set({QQNickName:SetNickName},function () {
         console.log("Set QQ Nickname as "+SetNickName);
-
+        window.location.reload();
     })
 }
 function checkQQNickNameStorage()
